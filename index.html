@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
+<html>
+  <head>
+    <title>EDGE196 Memorandum</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script>
+    $(document).ready(function(){
+      $("a").click(function(e) {
+        e.preventDefault();
+    
+        $("#main").attr("src", $(this).attr("href"));
+      })
+    });
+    </script>
+    <script language="JavaScript">
+      window.onload = function() {
+        document.addEventListener("contextmenu", function(e){
+          e.preventDefault();
+        }, false);
+        document.addEventListener("keydown", function(e) {
+        //document.onkeydown = function(e) {
+          // "I" key
+          if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+            disabledEvent(e);
+          }
+          // "J" key
+          if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+            disabledEvent(e);
+          }
+        // "P" key
+        if (e.ctrlKey && e.keyCode == 80) {
+            disabledEvent(e);
+          }
+        // "S" key
+        if (e.ctrlKey && e.keyCode == 83) {
+            disabledEvent(e);
+          }
+          // "S" key + macOS
+          if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
+            disabledEvent(e);
+          }
+          // "U" key
+          if (e.ctrlKey && e.keyCode == 85) {
+            disabledEvent(e);
+          }
+          // "F12" key
+          if (event.keyCode == 123) {
+            disabledEvent(e);
+          }
+        }, false);
+        function disabledEvent(e){
+          if (e.stopPropagation){
+            e.stopPropagation();
+          } else if (window.event){
+            window.event.cancelBubble = true;
+          }
+          e.preventDefault();
+          return false;
+        }
+      };
+      
+      window.addEventListener('contextmenu', function (e) {
+      e.preventDefault();
+    }, false);
+    </script>
+    <style>
+    .body {
+    background-color: #111A44;
+    }
+    </style>
+    </head>
+<body class="body" oncontextmenu="return false;">
+<table align="center" height="562">
+<tr>
+<td>
+<iframe src="nav.html" width="300px" height="560" frameBorder="0"></iframe>
+</td>
+<td>
+<iframe id="results" name="resultspage" src="pages/Confidential_Information_Memorandum_1.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" width="795px" height="562" frameBorder="0"></iframe>
+</td>
+</tr>
+</table>
+</body>
+</html>
