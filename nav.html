@@ -1,5 +1,9 @@
 <html>
 <head>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="HandheldFriendly" content="true">
+
 <style>
 .accordion {
   background-color: #111A44;
@@ -13,33 +17,36 @@
   font-size: 16px;
   transition: 0.4s;
   font-weight: bold;
+  font: muli regular;
 }
 
-.active, .accordion:hover {
-  background-color: #111A44;
+.active, .accordion:hover, .panel a:hover, .panel a:focus {
+  background-color: #F04B23;
+  max-width: 320px;
+  display: block;
 }
-
+ 
 .accordion:after {
-  content: '\002B';
-  color: #777;
+  content: 'ᐅ';
+  color: white;
   font-weight: bold;
   float: right;
   margin-left: 5px;
 }
 
 .active:after {
-  content: "\2212";
+  content: "ᐁ";
 }
 
 .panel {
-  padding: 0 18px;
+  font: muli regular;
+  color: white;
+  font-size: 15px;
+  padding: 0 0;
   background-color: #67667E;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
-  font-family: muli light;
-  color: white;
-  font-size: 15px;
 }
 
 .body {
@@ -47,164 +54,301 @@ background-color: #111A44;
 }
 
 p {
-align-items: left;
+text-indent: 18px;
+overflow-wrap: break-word;
+}
+
+#toc_container {
+  color: white;
+  width: 100%;
+  outline: none;
+  font-size: 16px;
+  font-weight: bold;
+  font: muli regular;
+  text-align: center;
 }
 </style>
 <style>
+a {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+} 
 a:link {
   color: white;
   background-color: transparent;
   text-decoration: none;
 } 
-a:visited {
-  color: white;
-  background-color: transparent;
-  text-decoration: none;
-}
-a:hover+div {
-  display: block;
-}
+
 .row:after {
   content: "";
   display: table;
   clear: both;
 }
-</style>
-</head>
-<body class="body" oncontextmenu="return false;">
 
+.contentindex {
+height: 510px;
+width: 400px;
+overflow-y: scroll;
+}
+
+/* Tablet Landscape */
+@media screen and (max-width: 1060px) {
+    #primary { width:67%; }
+    #secondary { width:30%; margin-left:3%;}  
+}
+
+/* Tabled Portrait */
+@media screen and (max-width: 768px) {
+    #primary { width:100%; }
+    #secondary { width:100%; margin:0; border:none; }
+}
+
+.video-container {
+position: relative;
+padding-bottom: 56.25%;
+padding-top: 30px;
+height: 0;
+overflow: hidden;
+}
+
+.video-container iframe,  
+.video-container object,  
+.video-container embed {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 95%%;
+}
+
+@media (min-width: 640px) { body {font-size:1rem;} } 
+@media (min-width:960px) { body {font-size:1.2rem;} } 
+@media (min-width:1100px) { body {font-size:1.5rem;} } 
+
+@media only screen and (max-width:800px) {
+  /* For tablets: */
+  .main {
+    width: 80%;
+    padding: 0;
+  }
+  .contentindex {
+    width: 20%;
+  }
+}
+@media only screen and (max-width:500px) {
+  /* For mobile phones: */
+  .contentindex, .main, .right {
+    width: 100%;
+  }
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+	
+<body class="body" oncontextmenu="return false;">
+	<div id="toc_container" font="muli regular">Table of Contents</div>
+
+<div class="contentindex">
 <button class="accordion"><a href="pages/Confidential_Information_Memorandum_1.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Home</a></button>
 
-<button class="accordion"><a href="pages/Contents_2.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Content Index</a></button>
+<button class="accordion"><a href="pages/Contents_2.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Contents</a></button>
 
-<button class="accordion"><a href="pages/Summary_3.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Summary</a></button>
+<button class="accordion" id="summary"><a href="pages/Summary_3.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Summary</a></button>
 <div class="panel">
   <p>
   <a href="pages/Overview_4.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Overview</a>
   </p>
 </div>
 
-<button class="accordion"><a href="pages/The_Problem_5_6.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">The Problem</a></button>
+<button class="accordion"><a href="pages/The_Problem_5.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">The Problem</a></button>
 <div class="panel">
-  <p>
-  <a href="pages/The_Current_State_of_the_Startup_Ecosystem_7.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">State of the Start Up Ecosystem</a><br>
-  <a href="pages/Challenging_Facing_Startups_7_8.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Challenges Facing Startups</a><br>
-  <a href="pages/Venture_Capital_Myths_and_Truths__9.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Venture Capital Myths and Truths</a><br>
-  <a href="pages/Lack_VC_Innovation_10.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage"> The Lack of VC Innovations</a><br>
-  <a href="pages/Is_There_Any_Hope_For_Startups_11.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Is ther Hope for Startups</a><br>
-  <a href="pages/But...Many_Startups_Do_Succeed_12.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">But...Many Startups Do Succeed</a>
-  </p>
+  <p><a href="pages/The_Problem_6.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">The Problem</a></p>
+  <p><a href="pages/The_Current_State_of_the_Startup_Ecosystem_7.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">State of the Start Up Ecosystem</a></p>
+  <p><a href="pages/Challenges_Facing_Startips_page_2_8.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Challenges Facing Startups</a></p>
+  <p><a href="pages/Venture_Capital_Myths_and_Truths__9.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Venture Capital Myths and Truths</a></p>
+  <p><a href="pages/Lack_VC_Innovation_10.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage"> The Lack of VC Innovations</a></p>
+  <p><a href="pages/Is_There_Any_Hope_For_Startups_11.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Is there Hope for Startups</a></p>
+  <p><a href="pages/But...Many_Startups_Do_Succeed_12.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">But...Many Startups Do Succeed</a></p>
 </div>
 
-<button class="accordion"><a href="pages/Our_Solution_13_14_15.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Our Solution</a></button>
+<button class="accordion"><a href="pages/Our_Solution_13.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Our Solution</a></button>
+<div class="panel">
+  <p><a href="pages/Our_Solution_14.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Our Solution</a></p>
+  <p><a href="pages/Our_Solution_15.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Our Solution Part 2</a></p>
+  <p><a href="pages/Major_Disruptors_16.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">EDGE196™ placed alongside major disruptors</a></p>
+</div>
 
 <button class="accordion"><a href="pages/Benefits_17.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Benefits</a></button>
 <div class="panel">
-  <p>
-  <a href="pages/StartUp_Ecosystem_and_Partner_Netword_18_19.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Start Up EcoSystem</a><br>
-  <a href="pages/StartUp_Ecosystem_and_Partner_Netword_18_19.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Partner Network</a><br>
-  <a href="pages/Our_USPs_20.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Our USPs</a><br>
-  <a href="pages/How_Do_Traditional_VC_Firms_Compare_21.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">How Do Traditional VCs firms comparewith EDGE196</a><br>
-  </p>
+  <p><a href="pages/StartUp_Ecosystem_and_Partner_Netword_18.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Start Up EcoSystem & Partner Network</a></p>
+  <p><a href="pages/Partner_Netword_19.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Partner Network</a></p>
+  <p><a href="pages/Our_USPs_20.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Our USPs</a></p>
+  <p><a href="pages/How_Do_Traditional_VC_Firms_Compare_21.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Traditional VCs firms compared with EDGE196</a></p>
 </div>
 
-<button class="accordion"><a href="pages/Digital_Assets_22.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Digital Assets</a></button>
+<button class="accordion"><a href="pages/Digital_Assets_22.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">DIGITAL ASSETS</a></button>
 <div class="panel">
-  <p>
-  <a href="pages/EDGE-Q_EDGE-X_23.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Edge-Q and Edge-X</a><br>
-  <a href="pages/EDGE-X_Digital_Asset_24.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Edge-X Digit Assests</a><br>
-  <a href="pages/Purchasing_and_Selling_EDGE-X_25.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Purchasing and Selling Edge-X</a><br>
-  <a href="pages/Raising_Investment_Capital_26.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Raising Investment Capital</a><br>
-  <a href="pages/Liquidity_Reserve_27.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Liquidity Reserve</a><br>
-  <a href="pages/EDGE-Q_The_Liquidity_Reserve_28.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Edge-Q and the Liquidity Reserve</a><br>
-  </p>
+  <p><a href="pages/EDGE-Q_EDGE-X_23.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">EDGE-Q and EDGE-X</a></p>
+  <p><a href="pages/EDGE-X_Digital_Asset_24.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">EDGE-X DIGITAL ASSETS</a></p>
+  <p><a href="pages/Purchasing_and_Selling_EDGE-X_25.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Purchasing and Selling EDGE-X</a></p>
+  <p><a href="pages/Raising_Investment_Capital_26.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Raising Investment Capital</a></p>
+  <p><a href="pages/Liquidity_Reserve_27.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Liquidity Reserve</a></p>
+  <p><a href="pages/EDGE-Q_The_Liquidity_Reserve_28.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">EDGE-Q and the Liquidity Reserve</a></p>
 </div>
 
 <button class="accordion"><a href="pages/Genesis_Offer_29.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Genesis Offer</a></button>
 <div class="panel">
   <p>
-  <a href="pages/Overview_of_Genesis_Offer_30.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Overview of Genesis Offer</a><br>
+  <a href="pages/Overview_of_Genesis_Offer_30.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Overview of Genesis Offer</a>
   </p>
 </div>
 
 <button class="accordion"><a href="pages/Momentum_Sales_31.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Momentum Sales</a></button>
 <div class="panel">
-  <p>
-  <a href="pages/Overview_of_Momentum_sales_32.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Overview of Momentum Sales</a><br>
-  <a href="pages/Momentum_Sales_Volumes_33.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Momentum Sales Volumes</a><br>
-  <a href="pages/Pricing_Mechanism_34.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Pricing Mechanism</a><br>
-  </p>
+  <p><a href="pages/Overview_of_Momentum_sales_32.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Overview of Momentum Sales</a></p>
+  <p><a href="pages/Momentum_Sales_Volumes_33.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Momentum Sales Volumes</a></p>
+  <p><a href="pages/Pricing_Mechanism_34.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Pricing Mechanism</a></p>
 </div>
 
-<button class="accordion"><a href="pages/Universal_Swap_35_36.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Universal Swap</a></button>
+<button class="accordion"><a href="pages/Universal_Swap_35.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Universal Swap</a></button>
+<div class="panel">
+  <p>
+  <a href="pages/Universal_Swap_36.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Power Staking Overview</a>
+  </p>
+</div>
 
 <button class="accordion"><a href="pages/Power_Staking_37.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Power Staking</a></button>
 <div class="panel">
   <p>
-  <a href="pages/Power_Staking_Overview_38.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Power Staking Overview</a><br>
+  <a href="pages/Power_Staking_Overview_38.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Power Staking Overview</a>
   </p>
 </div>
 
-<button class="accordion"><a href="pages/Marketplace_39_40.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Marketplace</a></button>
+<button class="accordion"><a href="pages/Marketplace_39.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Marketplace</a></button>
+<div class="panel">
+  <p>
+  <a href="pages/Marketplace_40.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Marketplace</a>
+  </p>
+</div>
 
 <button class="accordion"><a href="pages/Whitelist_41.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Whitelist</a></button>
 <div class="panel">
   <p>
-  <a href="pages/Whitelist_Overview_42.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Whitelist Overview</a><br>
+  <a href="pages/Whitelist_Overview_42.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Whitelist Overview</a>
   </p>
 </div>
 
 <button class="accordion"><a href="pages/The_3-Ms_43.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">The 3-Ms</a></button>
 <div class="panel">
-  <p>
-  <a href="pages/Our_3M_Solution_44.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Our '3M Solution'</a><br>
-  <a href="pages/3-Tiered_Investment_Review_Process_45.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">3 Tiered Investment Review Process</a><br>
-  <a href="pages/The_Vetting_Process_46.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">The Vetting Process</a><br>
-  <a href="pages/Startup_Competitions_and_Hackathons_47.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Start Up Competition and Hackathons</a><br>
-  </p>
+  <p><a href="pages/Our_3M_Solution_44.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Our '3M Solution'</a></p>
+  <p><a href="pages/3-Tiered_Investment_Review_Process_45.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">3 Tiered Investment Review Process</a></p>
+  <p><a href="pages/The_Vetting_Process_46.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">The Vetting Process</a></p>
+  <p><a href="pages/Startup_Competitions_and_Hackathons_47.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Start Up Competition and Hackathons</a></p>
 </div>
 
 <button class="accordion"><a href="pages/About_48.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">About</a></button>
 <div class="panel">
-  <p>
-  <a href="pages/Our_Journey_49.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Our Journey</a><br>
-  <a href="pages/Timeline_50_51.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Timeline</a><br>
-  </p>
+  <p><a href="pages/Our_Journey_49.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Our Journey</a></p>
+  <p><a href="pages/Timeline_50.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Timeline - 2016 to 2019</a></p>
+  <p><a href="pages/Timeline_51.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Timeline - 2020 to 2022</a></p>
 </div>
 
 <button class="accordion"><a href="pages/Projections_52.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Projections</a></button>
 <div class="panel">
   <p>
-  <a href="pages/Investment_Projections_53.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Investment Projections</a><br>
+  <a href="pages/Investment_Projections_53.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Investment Projections</a>
   </p>
 </div>
 
 <button class="accordion"><a href="pages/Disclaimer_54.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Disclaimer</a></button>
 
-<button class="accordion"><a href="pages/Risk_Factors_55-105.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Risk Factors</a></button>
+<button class="accordion"><a href="pages/Risk_Factors_55.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Risk Factors</a></button>
+<div class="panel">
+<p><a href="pages/Risk_Factors_56.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Summary Risk Factors</a></p>
+<p><a href="pages/Risk_Factors_57.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">This Offer May Be Withdrawn</a></p>
+<p><a href="pages/Risk_Factors_58.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Risk Related to an Investment</a></p>
+<p><a href="pages/Risk_Factors_59.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">At Insurance</a></p>
+<p><a href="pages/Risk_Factors_60.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">The Tax Treatment of Our Digital Assets</a></p>
+<p><a href="pages/Risk_Factors_61.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">If the Digital Assets Ever Become Transferable</a></p>
+<p><a href="pages/Risk_Factors_62.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">The Company Management</a></p>
+<p><a href="pages/Risk_Factors_63.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Our Digital Asset</a></p>
+<p><a href="pages/Risk_Factors_64.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Our Digital Assets are not Legal Tender</a></p>
+<p><a href="pages/Risk_Factors_65.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">The Digital Assets may have Lower Priority</a></p>
+<p><a href="pages/Risk_Factors_66.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Risk Related to Blockchain Technology</a></p>
+<p><a href="pages/Risk_Factors_67.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">The development & acceptance of blockchain</a></p>
+<p><a href="pages/Risk_Factors_68.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Prices of Digital Assets</a></p>
+<p><a href="pages/Risk_Factors_69.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Roles Related to Company Business</a></p>
+<p><a href="pages/Risk_Factors_70.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Participation in Other Ventures</a></p>
+<p><a href="pages/Risk_Factors_71.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">The Company ....</a></p>
+<p><a href="pages/Risk_Factors_72.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Dividends Pursuant Terms of Digital Assets</a></p>
+<p><a href="pages/Risk_Factors_73.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">A Violation of Privacy  </a></p>
+<p><a href="pages/Risk_Factors_74.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">The Company May Face Competitions</a></p>
+<p><a href="pages/Risk_Factors_75.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">No trading market for the digital assets</a></p>
+<p><a href="pages/Risk_Factors_76.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">EDGE196™ offcers in other ventures</a></p>
+<p><a href="pages/Risk_Factors_77.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Reliance on EDGE196TM</a></p>
+<p><a href="pages/Risk_Factors_78.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">EDGE196™ and publicity due to litigation</a></p>
+<p><a href="pages/Risk_Factors_79.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">EDGE196™ lacks a past operating history... </a></p>
+<p><a href="pages/Risk_Factors_80.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">EDGE196™ may invest through joint ventures</a></p>
+<p><a href="pages/Risk_Factors_81.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">EDGE196™ may make certain purchases...</a></p>
+<p><a href="pages/Risk_Factors_82.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">EDGE196™ finance purchases by Leverage.</a></p>
+<p><a href="pages/Risk_Factors_83.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">EDGE196™ may utilize credit derivatives.</a></p>
+<p><a href="pages/Risk_Factors_84.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Popularity of blockchain's future decrease</a></p>
+<p><a href="pages/Risk_Factors_85.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Purchases and regulatory scrutiny.</a></p>
+<p><a href="pages/Risk_Factors_86.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Limited rights for recourse against EDGE196™.</a></p>
+<p><a href="pages/Risk_Factors_87.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">EDGE196™ might lack liquidity ... </a></p>
+<p><a href="pages/Risk_Factors_88.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">EDGE196™ and  more funds to portfolio firms</a></p>
+<p><a href="pages/Risk_Factors_89.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">EDGE196™ will indemnify the General Partner  </a></p>
+<p><a href="pages/Risk_Factors_90.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Tax  </a></p>
+<p><a href="pages/Risk_Factors_91.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Tax Page 2  </a></p>
+<p><a href="pages/Risk_Factors_92.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">DIGITAL ASSET Ownership by US Residents</a></p>
+<p><a href="pages/Risk_Factors_93.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Tax Consequences of Distributions </a></p>
+<p><a href="pages/Risk_Factors_94.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Basis of the Digital Assets</a></p>
+<p><a href="pages/Risk_Factors_95.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Basis of the Digital Assets Page 2</a></p>
+<p><a href="pages/Risk_Factors_96.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Limitations on Interest Deductions</a></p>
+<p><a href="pages/Risk_Factors_97.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Limited Deductions for Activities</a></p>
+<p><a href="pages/Risk_Factors_98.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Deduction for Qualifed Business Income</a></p>
+<p><a href="pages/Risk_Factors_99.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Entity-Level Collections</a></p>
+<p><a href="pages/Risk_Factors_100.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Fund Tax Return and Audits</a></p>
+<p><a href="pages/Risk_Factors_101.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Backup Withholding and Other Withholding</a></p>
+<p><a href="pages/Risk_Factors_102.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Transferor/Transferee Allocations</a></p>
+<p><a href="pages/Risk_Factors_103.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Accuracy-Related Penalties</a></p>
+<p><a href="pages/Risk_Factors_104.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Corporate Purchasers  </a></p>
+<p><a href="pages/Risk_Factors_105.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Corporate Purchasers Page 2</a></p>
+</div>
 
 <button class="accordion"><a href="pages/Contact_106.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" target="resultspage">Contact Information</a></button>
 
 <script>
 var acc = document.getElementsByClassName("accordion");
 var i;
-	
+
 for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
+    acc[i].onclick = function() {
     this.classList.toggle("active");
     var panel = this.nextElementSibling;
-    if (panel.style.maxHeight) {
-      panel.style.maxHeight = null;
-    } else {
-      panel.style.maxHeight = panel.scrollHeight + "px";
+    if (panel.style.maxHeight){
+        panel.style.maxHeight = null;  // Collapse clicked panel
     } 
-	myFunction();
-  });
+    else { // expand clicked panel
+	    (this).style.backgroundColor = "#F04B23"; // Active tag
+		(this).style.content = "\1401";
+        panel.style.maxHeight = panel.scrollHeight + "px";
+        collapseOthers(this);
+    } 
+    }
 }
 
-
-function myFunction() {
-document.getElementById("results").innerHTML = '<object type="text/html" data="http://www.google.com" ></object>'; 
+// Collapse all other accordions except the clicked one
+function collapseOthers(clickedAccor) {
+    var accs = document.getElementsByClassName("accordion");
+    for (var i = 0; i < accs.length; i++) {
+        if (accs[i] != clickedAccor) {
+           accs[i].nextElementSibling.style.maxHeight = null;
+		   accs[i].style.backgroundColor = "#111A44"; // Inactive tag
+		   accs[i].style.content = "&#5125";
+        }
+    }
 }
 </script>
 </body>

@@ -1,84 +1,116 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
-  <head>
-    <title>EDGE196 Memorandum</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <script>
-    $(document).ready(function(){
-      $("a").click(function(e) {
-        e.preventDefault();
-    
-        $("#main").attr("src", $(this).attr("href"));
-      })
-    });
-    </script>
-    <script language="JavaScript">
-      window.onload = function() {
-        document.addEventListener("contextmenu", function(e){
-          e.preventDefault();
-        }, false);
-        document.addEventListener("keydown", function(e) {
-        //document.onkeydown = function(e) {
-          // "I" key
-          if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
-            disabledEvent(e);
-          }
-          // "J" key
-          if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
-            disabledEvent(e);
-          }
-        // "P" key
-        if (e.ctrlKey && e.keyCode == 80) {
-            disabledEvent(e);
-          }
-        // "S" key
-        if (e.ctrlKey && e.keyCode == 83) {
-            disabledEvent(e);
-          }
-          // "S" key + macOS
-          if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
-            disabledEvent(e);
-          }
-          // "U" key
-          if (e.ctrlKey && e.keyCode == 85) {
-            disabledEvent(e);
-          }
-          // "F12" key
-          if (event.keyCode == 123) {
-            disabledEvent(e);
-          }
-        }, false);
-        function disabledEvent(e){
-          if (e.stopPropagation){
-            e.stopPropagation();
-          } else if (window.event){
-            window.event.cancelBubble = true;
-          }
-          e.preventDefault();
-          return false;
-        }
-      };
-      
-      window.addEventListener('contextmenu', function (e) {
-      e.preventDefault();
-    }, false);
-    </script>
-    <style>
-    .body {
-    background-color: #111A44;
-    }
-    </style>
-    </head>
-<body class="body" oncontextmenu="return false;">
-<table align="center" height="562">
+<head>
+<title>EDGE196 Memorandum </title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="HandheldFriendly" content="true">
+<script>
+$(document).ready(function(){
+  $("a").click(function(e) {
+    e.preventDefault();
+
+    $("#main").attr("src", $(this).attr("href"));
+	
+ })
+});
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $(".accordion").on("click", function(){
+    $(this).addClass("active");
+    $(this).siblings().removeClass("active");
+	$(this).css("color", "#F04B23");
+   });
+});
+</script>
+<style>
+.body {
+background-color: #111A44;
+}
+
+</style>
+<style>
+/* Tablet Landscape */
+@media screen and (max-width: 1060px) {
+    #primary { width:67%; }
+    #secondary { width:30%; margin-left:3%;}  
+}
+
+/* Tabled Portrait */
+@media screen and (max-width: 768px) {
+    #primary { width:100%; }
+    #secondary { width:100%; margin:0; border:none; }
+}
+
+.video-container {
+position: relative;
+padding-bottom: 56.25%;
+padding-top: 30px;
+height: 0;
+overflow: hidden;
+}
+
+.video-container iframe,  
+.video-container object,  
+.video-container embed {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+}
+
+@media (min-width: 640px) { body {font-size:1rem;} } 
+@media (min-width:960px) { body {font-size:1.2rem;} } 
+@media (min-width:1100px) { body {font-size:1.5rem;} } 
+
+
+@media only screen and (max-width:800px) {
+  /* For tablets: */
+  .main {
+    width: 80%;
+    padding: 0;
+  }
+  .contentindext {
+    width: 20%;
+  }
+}
+@media only screen and (max-width:500px) {
+  /* For mobile phones: */
+  .nav, .main {
+    width: 100%;
+  }
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+</style>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+</head>
+
+<body class="body" >
+<div style="overflow-x:auto;">
+<table align="center" height="562px" width="1095px" class="main">
 <tr>
 <td>
-<iframe src="nav.html" width="300px" height="560" frameBorder="0"></iframe>
+<iframe src="nav.html" width="350px" align="right" height="563px" frameBorder="0"></iframe>
 </td>
 <td>
-<iframe id="results" name="resultspage" src="pages/Confidential_Information_Memorandum_1.pdf#zoom=70&toolbar=0&navpanes=0&scrollbar=0" width="795px" height="562" frameBorder="0"></iframe>
+<iframe id="results" name="resultspage" align="left" src="pages/Confidential_Information_Memorandum_1.pdf#zoom=70&toolbar=0&navpanes=0 scrolling="yes" width="795px" height="563px" frameBorder="0" style="pointer-events: none;" scrolling="yes"></iframe>
 </td>
 </tr>
 </table>
+</div>
 </body>
 </html>
